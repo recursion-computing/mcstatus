@@ -1,21 +1,27 @@
 <script src="https://mcapi.us/scripts/minecraft.js"></script>
 <meta name=”viewport” content=”width=device-width”>
+<meta name="description" content="Minecraft Server Status."/>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" /><link rel='stylesheet' href='//fonts.googleapis.com/css?family=Nunito' type='text/css' />
 <style type="text/css" media="screen">
 .statusbox {
-    min-height: 3em;
-            min-width: device-width;
-    border: 1px solid #66ffff;
-    border-radius: 1em;
-    background-color: #eee;
-    padding: 0.5em;
-    margin: 0.5em;
+    font-family: Nunito; 
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background-color: #093F79;
+    font-size: 24px;
+    color: white;
+    padding: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
     }
 </style>
 
 <div class="statusbox">
 <span class="label"> </span>
 <div class="server-status">
-   My awesome server is currently <span class="server-online"></span>!
+   The server is currently <span class="server-online"></span>!
 </div>
 <script>
     let subdomain = "mc."
@@ -29,7 +35,7 @@
     }
 
 // you can change these to your own message!
-    document.querySelector('.server-online').innerHTML = status.online ?     'up' : 'down';
+    document.querySelector('.server-online').innerHTML = status.online ? 'online' : 'offline';
   });
 </script>
 
