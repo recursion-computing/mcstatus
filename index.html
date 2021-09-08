@@ -58,7 +58,8 @@
     let tld = ".is"
     MinecraftAPI.getServerStatus(subdomain+sld+tld, {port: 25565}, function (err, status) {
         if (err) {
-            return document.querySelector('.server-status').innerHTML = 'Error loading status';
+            return document.querySelector('.server-status').innerHTML = 'The server is currently offline';
+            document.querySelector('.info').id = 'red';
         }
         document.querySelector('.server-status').innerHTML = status.online ? 'The server is currently online' : 'The server is currently offline';
         document.querySelector('.info').id = status.online ? 'green' : 'red';
