@@ -15,13 +15,42 @@
     padding: 16px;
     padding-left: 32px;
     padding-right: 32px;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    }
+  #green
+    font-family: Nunito; 
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background-color: #43B581;
+    font-size: 24px;
+    color: white;
+    padding: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+    }
+  #red {
+    font-family: Nunito; 
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background-color: #F04747;
+    font-size: 24px;
+    color: white;
+    padding: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
     }
 </style>
 
-<div class="statusbox">
+<div class="statusbox" >
 <span class="label"> </span>
 <div class="server-status">
-   The server is currently <span class="server-online"></span>!
+   The server is currently <span class="server-online"></span>.
 </div>
 <script>
     let subdomain = "mc."
@@ -33,9 +62,8 @@
     if (err) {
   return document.querySelector('.server-status').innerHTML = 'Error loading status';
     }
-
-// you can change these to your own message!
-    document.querySelector('.server-online').innerHTML = status.online ? 'online' : 'offline';
+    document.querySelector('.statusbox').innerHTML = status.online ? 'online' : 'offline';
+    document.querySelector('.statusbox').id = status.online ? 'green' : 'red';
   });
 </script>
 
