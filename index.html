@@ -7,7 +7,7 @@
 <meta property="og:url" content="https://recursion.is/mcstatus" />
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" /><link rel='stylesheet' href='//fonts.googleapis.com/css?family=Nunito' type='text/css' />
 <style type="text/css" media="screen">
-.statusbox {
+.info {
     font-family: Nunito; 
     border: 0;
     background: none;
@@ -48,10 +48,9 @@
     }
 </style>
 
-<div class="statusbox" >
-<span class="label"> </span>
+<div class="info" >
 <div class="server-status">
-   The server is currently <span class="server-online"></span>.
+   The server is currently...
 </div>
 <script>
     let subdomain = "mc."
@@ -61,8 +60,8 @@
         if (err) {
             return document.querySelector('.server-status').innerHTML = 'Error loading status';
         }
-        document.querySelector('.statusbox').innerHTML = status.online ? 'online' : 'offline';
-        document.querySelector('.statusbox').id = status.online ? 'green' : 'red';
+        document.querySelector('.server-status').innerHTML = status.online ? 'The server is currently online' : 'The server is currently offline';
+        document.querySelector('.info').id = status.online ? 'green' : 'red';
   });
 </script>
 </div>
