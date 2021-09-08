@@ -18,7 +18,10 @@
    My awesome server is currently <span class="server-online"></span>!
 </div>
 <script>
- MinecraftAPI.getServerStatus('minecraft.recursion.is', {
+    let subdomain = "mc."
+    let sld = "recursion"
+    let tld = ".is"
+ MinecraftAPI.getServerStatus(subdomain+sld+tld, {
     port: 25565 // optional, only if you need a custom port
   }, function (err, status) {
     if (err) {
