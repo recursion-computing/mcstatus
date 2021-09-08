@@ -1,6 +1,10 @@
 <script src="https://mcapi.us/scripts/minecraft.js"></script>
 <meta name=”viewport” content=”width=device-width”>
 <meta name="description" content="Minecraft Server Status."/>
+<title>Recursion Minecraft Server Status</title>
+<meta property="og:title" content="Recursion" />
+<meta property="og:description" content="Minecraft Server Status" />
+<meta property="og:url" content="https://recursion.is/mcstatus" />
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" /><link rel='stylesheet' href='//fonts.googleapis.com/css?family=Nunito' type='text/css' />
 <style type="text/css" media="screen">
 .statusbox {
@@ -15,11 +19,8 @@
     padding: 16px;
     padding-left: 32px;
     padding-right: 32px;
-    display: grid;
-    place-items: center;
-    align-content: center;
     }
-  #green
+  #green {
     font-family: Nunito; 
     border: 0;
     background: none;
@@ -56,15 +57,12 @@
     let subdomain = "mc."
     let sld = "recursion"
     let tld = ".is"
- MinecraftAPI.getServerStatus(subdomain+sld+tld, {
-    port: 25565 // optional, only if you need a custom port
-  }, function (err, status) {
-    if (err) {
-  return document.querySelector('.server-status').innerHTML = 'Error loading status';
-    }
-    document.querySelector('.statusbox').innerHTML = status.online ? 'online' : 'offline';
-    document.querySelector('.statusbox').id = status.online ? 'green' : 'red';
+    MinecraftAPI.getServerStatus(subdomain+sld+tld, {port: 25565}, function (err, status) {
+        if (err) {
+            return document.querySelector('.server-status').innerHTML = 'Error loading status';
+        }
+        document.querySelector('.statusbox').innerHTML = status.online ? 'online' : 'offline';
+        document.querySelector('.statusbox').id = status.online ? 'green' : 'red';
   });
 </script>
-
 </div>
