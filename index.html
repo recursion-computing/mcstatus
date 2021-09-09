@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter/dist/mc-player-counter.min.js"></script>
 <script src="https://mcapi.us/scripts/minecraft.js"></script>
 <meta name=”viewport” content=”width=device-width”>
 <meta name="description" content="Minecraft Server Status."/>
@@ -49,9 +51,9 @@
 </style>
 
 <div class="info" >
-<div class="server-status">
-   The server is currently...
+Players on mc.recursion.is: <b><span data-playercounter-ip="mc.recursion.is" data-playercounter-format="{online}/{max}">Server Offline</span></b>
 </div>
+
 <script>
     let subdomain = "mc."
     let sld = "recursion"
@@ -61,8 +63,9 @@
             document.querySelector('.info').id = 'red';
             return document.querySelector('.server-status').innerHTML = 'The server is currently offline';
         }
-        document.querySelector('.server-status').innerHTML = status.online ? 'The server is currently online' : 'The server is currently offline';
+        if (!status.online){
+          document.querySelector('.server-status').innerHTML = 'The server is currently offline';
+        }
         document.querySelector('.info').id = status.online ? 'green' : 'red';
   });
 </script>
-</div>
